@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="contact-right">
-                <form action="" id="myForm" method="post" name="contact-us" onsubmit="return validateForm()">
+                <form action="" id="myForm" method="post" name="contact-us" >
                     <p>Name*</p>
                     <input type="text"  id="inputText" oninput="autoCapitalize()" placeholder="Enter your name"  name="NAME" required>
                     <br><br><br>
@@ -203,7 +203,22 @@
     this.reset();}
 );
 
+function validateForm() {
+    var emailInput = document.getElementById("email");
+    var emailValue = emailInput.value;
 
+    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(emailValue)) {
+      alert("Please enter a valid email address.");
+      return false; // Prevent form submission
+    }
+
+    // If email is valid, you might do additional checks here
+    // For example, you could send an AJAX request to check if the email already exists
+
+    // If everything is valid, allow the form to submit
+    return true;
+  }
 
     </script>
 </body>
