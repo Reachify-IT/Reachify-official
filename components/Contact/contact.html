@@ -205,10 +205,10 @@ form.addEventListener('submit', e => {
     .then(response => {
       // Display custom alert box
       customAlert.style.display = 'block';
-     
+      
       setTimeout(() => {
         customAlert.style.display = 'none';
-      }, 1000);
+      }, 5000);
 
       // Optional: Reset the form after submission
       form.reset();
