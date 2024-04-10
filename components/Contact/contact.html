@@ -48,7 +48,7 @@
                     <input type="text"  id="inputText" oninput="autoCapitalize()" placeholder="Enter your name"  name="NAME" required>
                     <br><br><br>
                     <p>Email*</p>
-                    <input type="text"  id="emails" placeholder="Enter your e-mail" name="EMAIL" required>
+                    <input type="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"  id="emails" placeholder="Enter your e-mail" name="EMAIL" required>
                     <br><br><br>
                     <p>How did you hear about us?*</p>
                     <select id="hear" name="HOW_DID_YOU_HEAR_ABOUT_US?" required!>
