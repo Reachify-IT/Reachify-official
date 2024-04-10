@@ -43,15 +43,15 @@
             </div>
         </div>
         <div class="contact-right">
-                <form action="" id="myForm" method="get">
+                <form action="" id="myForm" method="post" name="contact-us">
                     <p>Name*</p>
-                    <input type="text"  id="inputText" oninput="autoCapitalize()" placeholder="Enter your name" required>
+                    <input type="text"  id="inputText" oninput="autoCapitalize()" placeholder="Enter your name"  name="NAME" required>
                     <br><br><br>
                     <p>Email*</p>
-                    <input type="text"  id="emails" placeholder="Enter your e-mail" required>
+                    <input type="text"  id="emails" placeholder="Enter your e-mail" name="EMAIL" required>
                     <br><br><br>
                     <p>How did you hear about us?*</p>
-                    <select id="hear" required!>
+                    <select id="hear" name="HOW_DID_YOU_HEAR_ABOUT_US?" required!>
                         <option>Select your answer</option>
                         <option value="LinkedIn">Linkedin</option>
                         <option value="From a friend/colleague">From a friend/colleague</option>
@@ -61,22 +61,23 @@
                       </select>
                     <br><br><br>
                     <p>Enter your Phone number (optional)</p>
-                    <input type="tel" pattern="[0-9]{10}" id="number"  placeholder="Enter your Number"/>
+                    <input type="tel" pattern="[0-9]{10}" id="number" name="PHONE"  placeholder="Enter your Number"/>
                     <br><br><br>
                     <p>How can we help you?*</p>
                     <div id="msg">
-                    <input type="text " id="message" placeholder="Type your message">
+                    <input type="text " id="message"  name="MESSAGE" placeholder="Type your message">
                     </div>
                     <br>
                     <div class="check">
                         <input type="checkbox" class="circle-checkbox" required> Yes,I would like to recieve marketing communications form Reachify through phone and email. You can unsubscribe at any time.
                     </div>
-                </form>
-                <div class="submit-form">
-                    <div class="btn3">
-                        <button type="submit" id="showThankYouButton">SUBMIT FORM</button>
+                    <div class="submit-form">
+                        <div class="btn3">
+                            <button type="submit" id="showThankYouButton">SUBMIT FORM</button>
+                        </div>
                     </div>
-                </div>
+                </form>
+                
                
                
                 <div class="popup" id="popup">
@@ -181,5 +182,18 @@
        </div>
     </div>
     </div>
+
+
+    <script>
+        const scriptUrl='https://script.google.com/macros/s/AKfycbyYflwbBidZDVg895VOomBmKZlkuUdsBZf_-jxjPr-6IQoBYHwOy3P2CbxqtOtQQf1h/exec'
+        const form = document.forms['contact-us']
+
+        form.addEventListener('submit',e=>{
+            e.preventDefault()
+            fetch(scriptUrl,{method:'post', body:new FormData(form)}).
+            then(Response=>alert("Thanks for connecting us..! Someone from the team will contact you!"))
+            .catch(err => console.log(err))
+        })
+    </script>
 </body>
 </html>
